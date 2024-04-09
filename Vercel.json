@@ -11,5 +11,12 @@
             "dest":"app.jsx"
             
           }
-        ]
+        ],
+     "rewrites": [
+        {
+            "source": "/api/",
+            "destination": "https://jiomusicbackend.onrender.com"
+        },
+       
+    ]
 }
