@@ -1,0 +1,562 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.box1 img{
+width: 200px;
+}
+
+.box{
+  display: grid;
+  grid-template-columns: 300px 300px 300px 300px;
+  gap: 10px;
+  margin-top: 100px;
+}
+
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: 0;
+  font-family: 'Poppins',sans-serif;
+}
+
+body{
+  background-color:  #f6f6f6;
+}
+
+.header{
+  position: fixed;
+  top:0;
+  left:0 ;
+  width: 100%;
+  z-index: 100;
+  background: white;
+}
+
+nav{
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  align-items: center;
+  height:40px;
+  position: sticky;
+  top:0;
+  color: #3e3e3e;
+  height: 10vh;
+  margin-bottom: 0px;
+
+}
+
+nav .logo{
+  display: flex;
+  gap: 30px;
+}
+
+nav .logo img{
+  width: 130px;
+}
+
+nav .items{
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+nav .search-bar{
+  display: flex;
+  margin-right: 15px;
+}
+
+.side-nav{
+  display: flex;
+  gap: 30px;
+  margin-right: 20px;
+}
+
+.search-box input{
+  border: 0;
+  outline :0;
+  font-size: 16px;
+}
+.search-box .btn{
+  border: none;
+  background: white;
+}
+
+.search-box{
+  border: 1px solid rgb(255, 253, 253);
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  border-radius: 20px;
+  padding:7px 0;
+  box-shadow: 0 0 10px rgba(228, 225, 225, 0.579);
+
+}
+.search-box img{
+  width: 16px;
+  margin-right: 15px;
+}
+
+.search-box p{
+  font-size: 20px;
+}
+.header a{
+  text-decoration: none;
+  font-size:16px;
+  font-weight: 500;
+}
+
+
+
+.row{
+  display: flex;
+  align-items: center;
+  z-index: 0;
+  margin-top: 0px;
+}
+
+
+.left-slide{
+ 
+  flex-basis: 17%;
+  position: sticky;
+  top:70px;
+  align-self: flex-start; /*  very important nhi to niche aa jyega */ 
+  padding: 15px 35px ;
+  display: flex;
+  flex-direction: column;
+  gap:12px;
+  overflow-y: scroll;
+}
+
+.left-slide h1{
+  font-size: 13px;
+font-weight:lighter;
+  color: #828da8;
+  margin-bottom: 20px;
+  font-weight: 400;
+  margin-top: 20px;
+}
+
+.left-slide p{
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #3e3e3e;
+  font-weight: bold;
+}
+
+.left-slide span{
+  margin-top: 10px;
+  border:1px solid #2bc5b4;
+  color:#2bc5b4;
+  border-radius: 20px;
+  width: 150px;
+  text-align: center;
+  padding: 10px 0;
+  font-weight: bolder;
+  
+}
+
+
+.foot{
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  bottom: 0;
+  left:0;
+  width: 100%;
+  z-index: 100;
+  background-color: white;
+  height: 11vh;
+}
+
+.footer{
+ 
+  display: flex;
+  gap:18vw;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+
+}
+
+.songInfo{
+  display: flex;
+  align-items: center;
+  gap:20px;
+  width: 30%;
+}
+
+
+.titles{
+  display: flex;
+  flex-direction: column;
+}
+.songInfo .singer{
+  font-size: 20px;
+}
+
+.masterSongName{
+  font-size: 16px;
+  color:#3e3e3e;
+  font-weight: 500;
+}
+
+
+.song-control
+{
+  display: flex;
+  gap: 15px;
+}
+
+.time-duration{
+  display: flex;
+  gap:15px;
+}
+
+.boxf img{
+  width: 40px;
+}
+
+.boxf{
+  display: none;
+}
+
+.active{
+  display: flex;
+  gap: 15px;
+}
+
+.foot input{
+  width: 100%;
+  height: 3px;
+  background-color: #2bc5b4;;
+}
+
+
+
+.rowi{
+  height: 70vh;
+  display: flex;
+  gap:7vw;
+  margin-top: 15vh;
+}
+
+.left{
+  display: flex;
+  flex-direction: column;
+  padding: 10px 200px;
+  align-items: center;
+}
+
+h1{
+  font-weight: bolder;
+  font-size: 20px;
+  margin-top: 5px;
+}
+
+.left img{
+  width: 400px;;
+}
+
+.song img{
+  width:40px
+}
+.songName{
+  width: 240px;
+  margin-left: 2px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.song-title{
+  width: 400px;
+}
+
+.song{
+  width:40px;
+}
+.song:hover{
+  background-color: white;
+}
+
+.right{
+  width: 100px;
+  position: absolute;
+  top:0;
+  right:0;
+  overflow: hidden;
+  
+}
+.songItemsList::-webkit-scrollbar{
+  display: none;
+}
+.right:hover{
+  width: 40%;
+  position: absolute;
+  top:70px;
+  right:0;
+  z-index: 10;
+  background-color: #f6f6f6;
+}
+.singer{
+  font-size:12px;
+}
+.song{
+  display:flex;
+  gap:50px;
+  width: 95%;
+  border-radius: 12px;
+  align-items: center;
+  padding: 10px 34px;
+  cursor: pointer;
+  
+}
+.songItemsList{
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+  width: 100%;
+  height:65vh;
+  overflow-y: scroll;
+}
+
+#playstate{
+  color: white;
+  background-color: #2bc5b4;
+  border: 1px solid #2bc5b4;
+  padding: 5px 5px;
+  font-size: 10px;
+
+}
+.gif{
+  color: white;
+  background-color: #2bc5b4;
+  border: 1px solid #2bc5b4;
+  padding: 10px 5px;
+  font-size: 10px;
+
+}
+.nonactive{
+  display: none;
+}
+
+.song-title{
+  width: 140px;
+}
+
+.active{
+  display: block;
+}
+
+
+.topi{
+  display: flex;
+  justify-content: space-between;
+}
+.save{
+  background-color: #2bc5b4;
+  border-radius: 20px;
+  padding: 10px 25px;
+}
+
+.clear{
+  border-radius: 20px;
+  padding: 10px 25px ;
+}
+
+.f{
+  display: flex;
+  gap:30px;
+  align-items: center;
+}
+
+.songItemsList{
+  display: flex;
+  flex-direction: column;
+}
+
+.layer{
+  display: flex;
+  flex-direction: column;
+  column-gap: 40px;
+  background: linear-gradient(rgba(0,0,0,0.5),#3e3e3e);
+  position: absolute;
+  width: 200px;
+  height:0;
+  top:0;
+  left:0;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+
+.layer span{
+  margin-right: 70px;
+}
+
+.active:hover .layer{
+  height:90%;
+}
+
+.box1{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap:10px;
+}
+
+.box1 p {
+  text-align: center;
+}
+
+.dropdown{
+  position: absolute;
+  top:60px;
+  left:70px;
+  height: 100px;
+  visibility: hidden;
+  background-color: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+  font-size: 12px;
+  padding: 10px 10px;
+}
+
+.dropActive.dropdown{
+  height:fit-content;
+  visibility: visible;
+}
+
+.PlaylistBox{
+  height: 0;
+  visibility: hidden;
+  display: none;
+}
+
+.addPlaylistActive{
+  visibility: visible;
+  height: fit-content;
+  display: block;
+}
+
+.playlistTop{
+  display: flex;
+  height: 40vh;
+  align-items: center;
+ background:   linear-gradient(rgba(0,0,0,0.3),rgb(202, 19, 19));
+  width: 100%;
+  gap:30px;
+  padding: 20px 20px;
+}
+
+.playlistTop img{
+  width: 200px;
+}
+
+.playlistTop .pright{
+  display: flex;
+  flex-direction: column;
+  gap:10px
+}
+
+.playlists{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+
+.menu{
+  display: none;
+}
+
+
+@media screen and (min-width: 200px) and (max-width: 900px) {
+  .box{
+    position: absolute;
+  top:10px;
+    display: grid;
+    grid-template-columns: 150px 150px ;
+    gap: 10px;
+    margin-left: 30px;
+  }
+
+  .left-slide{
+    display: none;
+  }
+
+  .left-slide-active{
+    display: flex;
+    z-index: 10;
+    background-color: wheat;
+    width: 50%;
+    position: fixed;
+    top:20px;
+  }
+
+  .row{
+    display: block;
+  }
+
+
+  .logo .items{
+    display: none;
+  }
+
+
+  .side-nav  :nth-child(1){
+    display: none;
+  }
+
+  .search-box{
+    margin-right: 10px;
+    width: 750px;
+  }
+
+
+  .rowi{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .topi{
+    display: none;
+  }
+
+  .rowi .left .image{
+    width: 150px;
+  }
+
+  .rowi .left{
+    display: flex;
+    flex-direction: column;
+    padding: 9px;
+    align-items: center;
+    width: 400px
+  }
+
+  .songItemsList .song{
+      display: flex;
+      gap: 30px;
+      width: 100%;
+      border-radius: 12px;
+      align-items: center;
+      padding: 10px 34px;
+      cursor: pointer;
+  }
+
+  .row .row{
+    flex-direction: column;
+  }
+
+  .box1 p{
+    text-align: left;
+  }
+}
