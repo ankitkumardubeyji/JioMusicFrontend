@@ -1,15 +1,12 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
+// https://vitejs.dev/config/
 export default defineConfig({
-  server: {
-    proxy: {
-      '/api': {
-        target: 'https://jiomusicbackend.onrender.com',
-        changeOrigin: true,
-        rewrite: (path) => `/api${path}` // Add the '/api' prefix
+  server:{
+      proxy:{
+        '/api':'https://jiomusicbackend.onrender.com'
       }
-    }
   },
-  plugins: [react()]
-});
+  plugins: [react()],
+})
