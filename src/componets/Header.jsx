@@ -75,8 +75,8 @@ const [searchValue,setSearchValue] = useState("")
 
             <div className="side-nav">
                 <a href="">Music Languages</a>
-                {isLoggedIn?(<a href="" onClick={handleLogOut}>LogOut</a>):<a href="" onClick={handleLogin} >Login</a>}
-                {isLoggedIn?(<a href="" style={{borderRadius:"100%", width:"50px", padding:"2px 2px "}}><img src={data.avatar} width={"100%"}/></a>):<a href=""><PersonIcon/></a>}
+                {isLoggedIn?(<a href="#" onClick={handleLogOut}>LogOut</a>):<Link to="/login" >Login</Link>}
+                {isLoggedIn?(<a href="#" style={{borderRadius:"100%", width:"50px", padding:"2px 2px "}}><img src={data.avatar} width={"100%"}/></a>):<a href=""><PersonIcon/></a>}
                 
             </div>
         </nav>
