@@ -1,9 +1,15 @@
 {
-    "rewrites": [
+    "builds": [
         {
-            "source": "/api/",
-            "destination": "https://jiomusicbackend.onrender.com"
+            "src": "./app.jsx",
+            "use": "@vercel/node"
         },
-       
-    ]
+    ],
+        "routes":[
+          {
+            "src":"/.",
+            "dest":"app.jsx"
+            
+          }
+        ]
 }
