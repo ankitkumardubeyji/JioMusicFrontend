@@ -4,11 +4,24 @@ import axios from "axios"
 
 import toast from "react-hot-toast";
 
+const isLoggedInString = localStorage.getItem("isLoggedIn");
+const isLoggedIn = isLoggedInString ? isLoggedInString === 'true' : false;
+
+let data;
+try {
+    const dataString = localStorage.getItem("data");
+    data = dataString ? JSON.parse(dataString) : {};
+} catch (error) {
+    console.error("Error parsing data from localStorage:", error);
+    data = {};
+}
 
 const initialState = {
-    isLoggedIn : localStorage.getItem("isLoggedIn") || false,
-    data:  JSON.parse(localStorage.getItem("data"))||{},
-}
+    isLoggedIn: isLoggedIn,
+    data: data,
+};
+
+
 
 
 
