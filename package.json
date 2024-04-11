@@ -16,11 +16,13 @@
     "@mui/material": "^5.15.14",
     "@reduxjs/toolkit": "^2.2.2",
     "axios": "^1.6.8",
+    "gh-pages": "^6.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",
     "react-redux": "^9.1.0",
-    "react-router-dom": "^6.22.0"
+    "react-router-dom": "^6.22.0",
+    "vercel": "^33.7.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",
