@@ -1,3 +1,7 @@
 {
-    "rewrites": [{ "source": "/api/(.*)", "destination": "http://jiomusicbackend.onrender.com/api/(.*)" }]
-  }
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "http://jiomusicbackend.onrender.com/api/$1"
+    }
+ 
