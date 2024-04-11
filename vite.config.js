@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   server:{
     proxy:{
-      '/api':'https://jiomusicbackend.onrender.com',
+      '/api':'http://jiomusicbackend.onrender.com',
     }
   },
   plugins: [react()],
