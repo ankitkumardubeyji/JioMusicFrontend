@@ -37,7 +37,7 @@ export const createAccount = createAsyncThunk("auth/signup",async(data)=>{
 export const validateUserAccount = createAsyncThunk("auth/login",async(data)=>{
     let result ={}
     console.log("came here for the login");
-    const res = axios.post("api/v1/users/login",data)
+    const res = axios.post("/api/v1/users/login",data)
     toast.promise(res,{
         loading:"wait logging you in!",
         success:(data)=>{
