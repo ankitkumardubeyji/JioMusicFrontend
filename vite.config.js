@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://jiomusicbackend.onrender.com',
+        target: 'https://jiomusicbackend.onrender.com/',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')
       }
