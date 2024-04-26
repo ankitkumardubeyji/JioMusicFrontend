@@ -5,7 +5,7 @@ import axios from "axios";
 
 
 const initialState = {
-    songsData:[],
+   songsData:JSON.parse(localStorage.getItem("songsData"))||[],
     userSongsData:[],
     searchData:[],
     albumData:JSON.parse(localStorage.getItem("albumData"))||{},
@@ -159,8 +159,10 @@ const songSlice = createSlice({
         builder
         .addCase(getSongs.fulfilled,(state,action)=>{
             state.songsData = action.payload;
+             localStorage.setItem("songsData",JSON.stringify(state.songsData))
             console.log(state.songsData)
             state.currentSongsData =state.songsData
+            
             state.searchData = []
         })
 
