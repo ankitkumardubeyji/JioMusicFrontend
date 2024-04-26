@@ -52,7 +52,10 @@ function Login() {
     });
 
     if (response) {
-      navigate("/");
+      setTimeout(()=>{
+        navigate("/");
+      },2000)
+     
     }
   }
 
