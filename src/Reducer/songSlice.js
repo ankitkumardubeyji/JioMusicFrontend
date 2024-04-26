@@ -4,16 +4,26 @@ import axios from "axios";
 
 
 
+const getSafely = (key) => {
+    try {
+        const value = localStorage.getItem(key);
+        return value ? JSON.parse(value) : undefined;
+    } catch (error) {
+        console.error(`Error parsing ${key} from localStorage:`, error);
+        return [];
+    }
+};
+
 const initialState = {
-   songsData:JSON.parse(localStorage.getItem("songsData"))||[],
-    userSongsData:[],
-    searchData:[],
-    albumData:JSON.parse(localStorage.getItem("albumData"))||{},
-    currentSongsData:[],
-    listenHistory:JSON.parse(localStorage.getItem("listenHistory"))|| [],
-    addedSongId:JSON.parse(localStorage.getItem("addedSongId"))||[],
-    yourSongs:JSON.parse(localStorage.getItem("yourSongs"))||[]
-}
+    songsData: getSafely("songsData") || [],
+    userSongsData: [],
+    searchData: [],
+    albumData: getSafely("albumData") || {},
+    currentSongsData: [],
+    listenHistory: getSafely("listenHistory") || [],
+    addedSongId: getSafely("addedSongId") || [],
+    yourSongs: getSafely("yourSongs") || []
+};
 
 
 export const publishSong = createAsyncThunk("/song/publishSong",async(data)=>{
@@ -159,10 +169,9 @@ const songSlice = createSlice({
         builder
         .addCase(getSongs.fulfilled,(state,action)=>{
             state.songsData = action.payload;
-             localStorage.setItem("songsData",JSON.stringify(state.songsData))
+            localStorage.setItem("songsData",JSON.stringify(state.songsData))
             console.log(state.songsData)
             state.currentSongsData =state.songsData
-            
             state.searchData = []
         })
 
