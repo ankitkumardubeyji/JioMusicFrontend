@@ -102,7 +102,7 @@ const router = createBrowserRouter(
         <Route path="login" element = {<Login/>}/>
         <Route path='music' element = {<RequireAuth><SongAlbum />  </RequireAuth>}/>
         <Route path='register' element = {<Register/>}/>
-        <Route path='upload' element ={<RequireAuth>  <UploadSong /> </RequireAuth>}/>
+        <Route path='upload' element ={  <UploadSong /> }/>
         <Route path='search' element ={<RequireAuth>  <Search /> </RequireAuth>}/>
         <Route path='history' element ={<RequireAuth>  <History /> </RequireAuth>}/>
         <Route path='ys' element ={<RequireAuth>  <YourSongs /> </RequireAuth>}/>
