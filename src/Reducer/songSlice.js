@@ -64,63 +64,55 @@ export const getSongs = createAsyncThunk("song/getSong", async (data) => {
     }
   });
 
-export const searchSongs = createAsyncThunk("song/searchSong" ,async(data)=>{
-    let result = {}
-    console.log("came here for getting the songs ")
-    try{
-        const res = axios.get(`/api/v1/songs/${data}`);
-        toast.promise(res,{
-            loading:"wait getting the songs!",
-            success:(data)=>{
-            result = data?.data?.data
-                return data?.data?.message 
-            }
-        })
-
-        await res;
-        return  result;
+  import { createAsyncThunk } from "@reduxjs/toolkit";
+  import axios from "axios";
+  
+  export const searchSongs = createAsyncThunk("song/searchSong", async (data) => {
+    let result = {};
+    console.log("came here for getting the songs ");
+    try {
+      const res = await axios.get(`/api/v1/songs/${data}`);
+      result = res?.data?.data;
+      return result;
+    } catch (err) {
+      console.error(err.response?.data?.message);
+      throw err;
     }
-    catch(err){
-        toast.error(err.response?.data?.message)
+  });
+
+  
+  import { createAsyncThunk } from "@reduxjs/toolkit";
+  import axios from "axios";
+  
+  export const getArtistProfile = createAsyncThunk("song/artist", async (data) => {
+    let result = {};
+    try {
+      const res = await axios.get(`/api/v1/users/a/${data}`);
+      result = res?.data?.data;
+      return result;
+    } catch (error) {
+      console.error(error?.response?.data?.message);
+      throw error;
     }
-});
-export const getArtistProfile = createAsyncThunk("song/artist",async(data)=>{
-let result = {}
-    try{
-        const res = axios.get(`/api/v1/users/a/${data}`)
-        toast.promise(res,{
-            loading:"wait loading the artist information!",
-            success:(data)=>{
-                result = data?.data?.data
-                return data?.data?.message 
-            }
-      });
+  });
+  
 
-       await res;
-       return result  
+
+  import { createAsyncThunk } from "@reduxjs/toolkit";
+  import axios from "axios";
+  
+  export const addSongToListenHistory = createAsyncThunk("song/add", async (data) => {
+    let result = [];
+    try {
+      const res = await axios.patch(`/api/v1/users/alh/${data}`);
+      result = res?.data?.data;
+      return result;
+    } catch (error) {
+      console.error(error?.response?.data?.message);
+      throw error;
     }
-
-    catch(error){
-        toast.error(error?.response?.data?.message)
-    }
-   
-  })
-
-
-  export const addSongToListenHistory = createAsyncThunk("song/add",async(data)=>{
-    let result =[]
-        const res = axios.patch(`/api/v1/users/alh/${data}`)
-        toast.promise(res,{
-            loading:"wait adding the song to listen history",
-            success:(data)=>{
-                result = data?.data?.data ;
-                return data?.data?.message ;
-            }
-        })
-
-        await res;
-        return result;
-  })
+  });
+  
 
   export const getListenHistory = createAsyncThunk("songs/history",async()=>{
     const res = axios.get('/api/v1/users/history');
