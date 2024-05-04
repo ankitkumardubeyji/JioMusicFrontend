@@ -89,20 +89,17 @@ export const getSongsInPlaylist = createAsyncThunk("songs/playlist",async(data)=
 })
 
 
-export const getUserPlaylist = createAsyncThunk("getUser/playlist",async()=>{
-    const res = axios.get("/api/v1/playlist/user/p/get")
-    let result = []
-    toast.promise(res,{
-        loading:"wait loading your playlists",
-        success:(data)=>{
-            result = data?.data?.data
-            return data?.data?.message 
-        }
-    })
-
-    await res;
-    return result;
-})
+export const getUserPlaylist = createAsyncThunk("getUser/playlist", async () => {
+    let result = [];
+    try {
+      const res = await axios.get("/api/v1/playlist/user/p/get");
+      result = res?.data?.data;
+      return result;
+    } catch (error) {
+      console.error(error?.response?.data?.message);
+      throw error;
+    }
+  });
 
 
 const playlistSlice = createSlice({
