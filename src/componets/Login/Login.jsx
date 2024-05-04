@@ -54,11 +54,7 @@ function Login() {
     if (response) {
       setTimeout(()=>{
         navigate("/");
-<<<<<<< HEAD
-      },1000)
-=======
       },2000)
->>>>>>> 6920270f652d1f50a812a9619f81ae5a87c140d5
      
     }
   }

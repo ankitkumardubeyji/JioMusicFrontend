@@ -15,11 +15,7 @@ function Header(){
     function handleLogOut(event){
         event.preventDefault()
         console.log("came here for logout")
-<<<<<<< HEAD
-       const res =  dispatch(logout()).then(()=>navigate("/login"))
-=======
       const res =  dispatch(logout()).then(()=>navigate("/login"))
->>>>>>> 6920270f652d1f50a812a9619f81ae5a87c140d5
        console.log(res);
     }
 
