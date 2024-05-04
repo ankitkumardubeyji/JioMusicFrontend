@@ -26,6 +26,7 @@ import Search from './componets/Search'
 import YourSongs from './componets/YourSongs'
 import CreatePlaylist from './componets/CreatePlaylist'
 import Playlist from './componets/Playlist'
+import UploadMusic from './componets/UploadMusic'
 function App() {
 
   const dispatch = useDispatch()
@@ -102,7 +103,11 @@ const router = createBrowserRouter(
         <Route path="login" element = {<Login/>}/>
         <Route path='music' element = {<RequireAuth><SongAlbum />  </RequireAuth>}/>
         <Route path='register' element = {<Register/>}/>
+<<<<<<< HEAD
         <Route path='upload' element ={  <UploadSong /> }/>
+=======
+        <Route path="upload" element = {<UploadMusic/>}/>
+>>>>>>> 6920270f652d1f50a812a9619f81ae5a87c140d5
         <Route path='search' element ={<RequireAuth>  <Search /> </RequireAuth>}/>
         <Route path='history' element ={<RequireAuth>  <History /> </RequireAuth>}/>
         <Route path='ys' element ={<RequireAuth>  <YourSongs /> </RequireAuth>}/>

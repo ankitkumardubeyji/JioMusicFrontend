@@ -15,7 +15,11 @@ function Header(){
     function handleLogOut(event){
         event.preventDefault()
         console.log("came here for logout")
+<<<<<<< HEAD
        const res =  dispatch(logout()).then(()=>navigate("/login"))
+=======
+      const res =  dispatch(logout()).then(()=>navigate("/login"))
+>>>>>>> 6920270f652d1f50a812a9619f81ae5a87c140d5
        console.log(res);
     }
 
@@ -59,7 +63,7 @@ const [searchValue,setSearchValue] = useState("")
                 <img src="https://tse2.mm.bing.net/th?id=OIP.R137HYqG1Wnv0ADZ2bFkbQHaCn&pid=Api&P=0&h=180" alt=""/>
                 <div className="items">
                 <Link to="/music">Music</Link>
-                <a href="/upload">UploadSong</a>
+                <Link to="/upload">UploadSong</Link>
                 <Link to="/">Home</Link>
             </div>
             </div>
@@ -75,8 +79,8 @@ const [searchValue,setSearchValue] = useState("")
 
             <div className="side-nav">
                 <a href="">Music Languages</a>
-                {isLoggedIn?(<a href="" onClick={handleLogOut}>LogOut</a>):<a href="" onClick={handleLogin} >Login</a>}
-                {isLoggedIn?(<a href="" style={{borderRadius:"100%", width:"50px", padding:"2px 2px "}}><img src={data.avatar} width={"100%"}/></a>):<a href=""><PersonIcon/></a>}
+                {isLoggedIn?(<a href="#" onClick={handleLogOut}>LogOut</a>):<Link to="/login" >Login</Link>}
+                {isLoggedIn?(<a href="#" style={{borderRadius:"100%", width:"50px", padding:"2px 2px "}}><img src={data.avatar} width={"100%"}/></a>):<a href=""><PersonIcon/></a>}
                 
             </div>
         </nav>

@@ -4,10 +4,28 @@ import { data } from "autoprefixer"
 
 import axios from "axios"
 import toast from "react-hot-toast"
-const initialState={
-        userPlaylists:JSON.parse(localStorage.getItem("userPlaylists"))||[],
-        songsInPlaylist:JSON.parse(localStorage.getItem("songsInPlaylist"))||[]
+let userPlaylists;
+try {
+    const userPlaylistsString = localStorage.getItem("userPlaylists");
+    userPlaylists = userPlaylistsString ? JSON.parse(userPlaylistsString) : [];
+} catch (error) {
+    console.error("Error parsing user playlists from localStorage:", error);
+    userPlaylists = [];
 }
+
+let songsInPlaylist;
+try {
+    const songsInPlaylistString = localStorage.getItem("songsInPlaylist");
+    songsInPlaylist = songsInPlaylistString ? JSON.parse(songsInPlaylistString) : [];
+} catch (error) {
+    console.error("Error parsing songs in playlist from localStorage:", error);
+    songsInPlaylist = [];
+}
+
+const initialState = {
+    userPlaylists: userPlaylists,
+    songsInPlaylist: songsInPlaylist
+};
 
 
 export const createPlaylist = createAsyncThunk("create/playlist",async(data)=>{
