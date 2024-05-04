@@ -64,8 +64,7 @@ export const getSongs = createAsyncThunk("song/getSong", async (data) => {
     }
   });
 
-  import { createAsyncThunk } from "@reduxjs/toolkit";
-  import axios from "axios";
+
   
   export const searchSongs = createAsyncThunk("song/searchSong", async (data) => {
     let result = {};
@@ -81,8 +80,7 @@ export const getSongs = createAsyncThunk("song/getSong", async (data) => {
   });
 
   
-  import { createAsyncThunk } from "@reduxjs/toolkit";
-  import axios from "axios";
+
   
   export const getArtistProfile = createAsyncThunk("song/artist", async (data) => {
     let result = {};
@@ -98,8 +96,7 @@ export const getSongs = createAsyncThunk("song/getSong", async (data) => {
   
 
 
-  import { createAsyncThunk } from "@reduxjs/toolkit";
-  import axios from "axios";
+  
   
   export const addSongToListenHistory = createAsyncThunk("song/add", async (data) => {
     let result = [];
