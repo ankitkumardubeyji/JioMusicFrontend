@@ -32,7 +32,7 @@ function App() {
   const dispatch = useDispatch()
   
 
-  const [currentSong,setCurrentSong] = useState(JSON.parse(localStorage.getItem("currentSong"))||{id:0,title: "Warriyo - Mortals [NCS Release]", songFile: "songs/1.mp3", thumbnail: "covers/1.jpg",owner:"Jollu"});
+  const [currentSong,setCurrentSong] = useState(JSON.parse(localStorage.getItem("data"))||{id:0,title: "Warriyo - Mortals [NCS Release]", songFile: "songs/1.mp3", thumbnail: "covers/1.jpg",owner:"Jollu"});
   const [play,setPlay] = useState(false)
   const [audioElement,setAudioElement] = useState(new Audio('songs/1.mp3'))
   const [currentAlbumSong,setCurrentAlbumSong] = useState({songName: "Warriyo - Mortals [NCS Release]", filePath: "songs/1.mp3", coverPath: "covers/1.jpg",singer:"Jollu"})
@@ -103,7 +103,7 @@ const router = createBrowserRouter(
         <Route path="login" element = {<Login/>}/>
         <Route path='music' element = {<RequireAuth><SongAlbum />  </RequireAuth>}/>
         <Route path='register' element = {<Register/>}/>
-        <Route path='upload' element ={  <UploadSong /> }/>
+        <Route path="upload" element = {<UploadMusic/>}/>
         <Route path='search' element ={<RequireAuth>  <Search /> </RequireAuth>}/>
         <Route path='history' element ={<RequireAuth>  <History /> </RequireAuth>}/>
         <Route path='ys' element ={<RequireAuth>  <YourSongs /> </RequireAuth>}/>
