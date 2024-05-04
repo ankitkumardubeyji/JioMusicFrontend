@@ -1,8 +1,12 @@
 {
-  "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "https://jiomusicbackend.onrender.com/api/$1"
-    }
- ]
+    "rewrites": [
+         {
+            "source": "/api/(.*)",
+           "destination": "https://jio-saavn-music1.vercel.app/api/$1"
+        },
+        {
+            "source": "/(.*)",
+            "destination": "/"
+        }
+    ]
 }
