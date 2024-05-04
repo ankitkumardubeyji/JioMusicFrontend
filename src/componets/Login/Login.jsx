@@ -54,7 +54,7 @@ function Login() {
     if (response) {
       setTimeout(()=>{
         navigate("/");
-      },2000)
+      },1000)
      
     }
   }
