@@ -33,7 +33,7 @@ async function uploadNewVideo(event){
     console.log("edhar tak bhi aa gaya tha ")
     console.log(formData)
 
-    const response =  dispatch(publishSong(formData)).then(()=>dispatch(getSongs("")).then(()=>navigate("/")))
+    const response =  dispatch(publishSong(formData)).then(()=>dispatch(getSongs("")).then(()=>setTimeout(()=>navigate("/"),2000)))
     setUploadData({
         title:"",
         description:"",
