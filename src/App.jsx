@@ -10,7 +10,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 
 import Home from "./componets/Home"
-import { RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
+import { RouterProvider, createBrowserRouter, createRoutesFromElements, Navigate } from 'react-router-dom'
 import Music from './componets/SongAlbum'
 import {Route} from "react-router-dom"
 import Layout from "./Layout"
@@ -20,7 +20,7 @@ import Login from './componets/Login/Login'
 import History from './componets/History'
 import Register from './componets/Register/Register'
 import UploadSong from './componets/UploadSong'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { addSongToListenHistory, getSongs } from './Reducer/songSlice'
 import Search from './componets/Search'
 import YourSongs from './componets/YourSongs'
@@ -29,6 +29,7 @@ import Playlist from './componets/Playlist'
 function App() {
 
   const dispatch = useDispatch()
+  
 
   const [currentSong,setCurrentSong] = useState(JSON.parse(localStorage.getItem("data"))||{id:0,title: "Warriyo - Mortals [NCS Release]", songFile: "songs/1.mp3", thumbnail: "covers/1.jpg",owner:"Jollu"});
   const [play,setPlay] = useState(false)
@@ -81,19 +82,32 @@ function App() {
     }
 
 
+    
+
+const RequireAuth = ({ children }) => {
+  const data = JSON.parse(localStorage.getItem("data"))
+  console.log(data)
+  if(data===null || data === undefined || Object.keys(data).length === 0){
+    console.log("came here for gand marana");
+    return  <Navigate to="/login" />;
+  }
+  
+  return children
+};
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element= {<Layout/>}>
-        <Route path = '' element = {<Home/>}/>
+        <Route path = '' element = {<RequireAuth>  <Home /> </RequireAuth>}/>
         <Route path="login" element = {<Login/>}/>
-        <Route path='music' element = {<SongAlbum/>}/>
+        <Route path='music' element = {<RequireAuth><SongAlbum />  </RequireAuth>}/>
         <Route path='register' element = {<Register/>}/>
-        <Route path='upload' element ={<UploadSong/>}/>
-        <Route path='search' element ={<Search/>}/>
-        <Route path='history' element ={<History/>}/>
-        <Route path='ys' element ={<YourSongs/>}/>
-        <Route path='cp' element ={<CreatePlaylist/>}/>
-        <Route path ='p' element ={<Playlist/>}/>
+        <Route path='upload' element ={  <UploadSong /> }/>
+        <Route path='search' element ={<RequireAuth>  <Search /> </RequireAuth>}/>
+        <Route path='history' element ={<RequireAuth>  <History /> </RequireAuth>}/>
+        <Route path='ys' element ={<RequireAuth>  <YourSongs /> </RequireAuth>}/>
+        <Route path='cp' element ={<RequireAuth>  <CreatePlaylist /> </RequireAuth>}/>
+        <Route path ='p' element ={<RequireAuth>  <Playlist /> </RequireAuth>}/>
     </Route>
   )
 )
