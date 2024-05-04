@@ -51,26 +51,18 @@ export const publishSong = createAsyncThunk("/song/publishSong",async(data)=>{
 })
 
 
-export const getSongs = createAsyncThunk("song/getSong" ,async(data)=>{
-    let result = {}
-    console.log("came here for getting the songs ")
-    try{
-        const res = axios.get(`/api/v1/songs/${data}`);
-        toast.promise(res,{
-            loading:"wait getting the songs!",
-            success:(data)=>{
-            result = data?.data?.data
-                return data?.data?.message 
-            }
-        })
-
-        await res;
-        return  result;
+export const getSongs = createAsyncThunk("song/getSong", async (data) => {
+    let result = {};
+    console.log("came here for getting the songs ");
+    try {
+      const res = await axios.get(`/api/v1/songs/${data}`);
+      result = res?.data?.data;
+      return result;
+    } catch (err) {
+      console.error(err.response?.data?.message);
+      throw err;
     }
-    catch(err){
-        toast.error(err.response?.data?.message)
-    }
-});
+  });
 
 export const searchSongs = createAsyncThunk("song/searchSong" ,async(data)=>{
     let result = {}
