@@ -29,20 +29,15 @@ export const toggleFollowingStatus = createAsyncThunk("follow/artist",async(data
    
 })
 
-export const artistsFollowing = createAsyncThunk("following/artist",async(data)=>{
-    const res  = axios.post('/api/v1/follower/fa')
-    let result = []
-    toast.promise(res,{
-        loading:"wait loading the artists you are following",
-        success:(data)=>{
-            result = (data?.data?.data);
-            return data?.data?.message 
-        }
-    })
-
-    await res;
-    return result 
-})
+export const artistsFollowing = createAsyncThunk("following/artist", async (data) => {
+    try {
+      const res = await axios.post('/api/v1/follower/fa');
+      return res?.data?.data;
+    } catch (error) {
+      console.error(error?.response?.data?.message);
+      throw error;
+    }
+  });
 
 
 const followSlice = createSlice({
