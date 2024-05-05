@@ -35,36 +35,19 @@ function Header(){
     }
 
     function handleSubmit(e){
+        e.preventDefault()
+        console.log("here came for the submisson")
+        console.log(searchValue)
+        let searchQuery = `?query=${searchValue}`
+        dispatch(getArtistProfile(searchValue)).then(()=>navigate("/music"))
+       dispatch(searchSongs(searchQuery)).then(()=>navigate("/search"))
+
+    
        
-        e.preventDefault();
-        console.log("here came for the submission");
-        console.log(searchValue);
-        
-        // Define the search query for later use
-        let searchQuery = `?query=${searchValue}`;
-        
-        // Dispatch getArtistProfile action first
-        dispatch(getArtistProfile(searchValue)).then((artistProfileResult) => {
-            // Check if artist profile was found
-            if (artistProfileResult.status === "fulfilled") {
-                navigate("/music"); // Navigate to music page
-            } else {
-                // If artist profile was not found, dispatch searchSongs action
-                dispatch(searchSongs(searchQuery)).then((searchSongsResult) => {
-                    // Check if search songs were found
-                    if (searchSongsResult.status === "fulfilled") {
-                        navigate("/search"); // Navigate to search page
-                    } else {
-                        console.log("Not found"); // Log "not found" if both actions failed
-                    }
-                }).catch((error) => {
-                    console.error("Error dispatching searchSongs:", error);
-                });
-            }
-        }).catch((error) => {
-            console.error("Error dispatching getArtistProfile:", error);
-        });
-        
+       
+        /*
+        )
+        */
     }
 const [searchValue,setSearchValue] = useState("")
     return (
