@@ -35,19 +35,15 @@ function Header(){
     }
 
     function handleSubmit(e){
-        let [music,setmusic] = useState(false)
+       
         e.preventDefault()
         console.log("here came for the submisson")
         console.log(searchValue)
         let searchQuery = `?query=${searchValue}`
-        dispatch(getArtistProfile(searchValue))
-        .then(() => navigate("/music"))
-        .catch(() =>
-            dispatch(searchSongs(searchQuery))
-                .then(() => navigate("/search"))
-                .catch((error) => console.error("Error searching for songs:", error))
-        );
-
+      
+       dispatch(searchSongs(searchQuery)).then(()=>navigate("/search"))
+       setTimeout(()=>dispatch(getArtistProfile(searchValue)).then(()=>navigate("/music")),3000)
+       
     
        
        
