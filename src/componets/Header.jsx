@@ -35,13 +35,14 @@ function Header(){
     }
 
     function handleSubmit(e){
+        let [location,setLocation] = useState("")
         e.preventDefault()
         console.log("here came for the submisson")
         console.log(searchValue)
         let searchQuery = `?query=${searchValue}`
-        dispatch(getArtistProfile(searchValue)).then(()=>navigate("/music"))
-        dispatch(searchSongs(searchQuery)).then(()=>navigate("/search"))
-        setSearchValue("")
+        dispatch(getArtistProfile(searchValue)).then(()=>setLocation("/music"))
+        dispatch(searchSongs(searchQuery)).then(()=>setLocation("/search"))
+        setTimeout(()=>console.log(location),3000)
     
        
        
