@@ -573,7 +573,8 @@ h1{
   }
   
   .footer{
-   
+    position: fixed;
+    bottom: 0;
     display: flex;
     gap:1vw;
     height: fit-content;
