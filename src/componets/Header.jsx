@@ -40,8 +40,13 @@ function Header(){
         console.log("here came for the submisson")
         console.log(searchValue)
         let searchQuery = `?query=${searchValue}`
-        dispatch(getArtistProfile(searchValue)).then(()=>navigate("/music"))
-       .catch(()=>dispatch(searchSongs(searchQuery)).then(()=>navigate("/search")))
+        dispatch(getArtistProfile(searchValue))
+        .then(() => navigate("/music"))
+        .catch(() =>
+            dispatch(searchSongs(searchQuery))
+                .then(() => navigate("/search"))
+                .catch((error) => console.error("Error searching for songs:", error))
+        );
 
     
        
