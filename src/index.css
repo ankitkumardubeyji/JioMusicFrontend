@@ -560,13 +560,24 @@ h1{
     text-align: left;
   }
 
-  .footer{
+  .foot{
     display: flex;
     flex-direction: column;
+    position: fixed;
+    bottom: 0;
+    left:0;
+    width: 100%;
+    z-index: 100;
+    background-color: white;
     height: fit-content;
   }
-
-  .foot{
+  
+  .footer{
+   
+    display: flex;
+    flex-direction: column;
+    gap:1vw;
     height: fit-content;
+  
   }
 }
