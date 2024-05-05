@@ -45,8 +45,9 @@ function Header(){
         
         // Dispatch both actions concurrently
         Promise.allSettled([
-            dispatch(getArtistProfile(searchValue)),
-            dispatch(searchSongs(searchQuery))
+            dispatch(searchSongs(searchQuery)),
+            dispatch(getArtistProfile(searchValue))
+            
         ]).then((results) => {
             // Check the results of both actions
             const [artistProfileResult, searchSongsResult] = results;
