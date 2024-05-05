@@ -593,5 +593,12 @@ h1{
   .titles{
     display: flex;
     flex-direction: column;
+    width: fit-content;
+  }
+
+  .time-duration{
+    position: absolute;
+    bottom: 0;
+    right: 10px;
   }
 }
