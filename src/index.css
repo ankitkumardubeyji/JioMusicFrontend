@@ -563,7 +563,10 @@ h1{
   .footer{
     display: flex;
     flex-direction: column;
-    gap:1px;
+    height: fit-content;
+  }
+
+  .foot{
     height: fit-content;
   }
 }
