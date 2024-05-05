@@ -35,13 +35,13 @@ function Header(){
     }
 
     function handleSubmit(e){
-        let [location,setLocation] = useState("")
+       
         e.preventDefault()
         console.log("here came for the submisson")
         console.log(searchValue)
         let searchQuery = `?query=${searchValue}`
-        dispatch(getArtistProfile(searchValue)).then(()=>navigate("/music")).catch(()=> dispatch(searchSongs(searchQuery)).then(()=>navigate("/search")))
-       
+        dispatch(getArtistProfile(searchValue)).then(()=>navigate("/music"))
+        dispatch(searchSongs(searchQuery)).then(()=>navigate("/search"))
         
     
        
