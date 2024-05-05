@@ -2,17 +2,18 @@ import { useDispatch, useSelector } from "react-redux";
 import useCurrentSong from "../contexts/CurrentSongContext";
 import Image  from "./Image"
 import Music from "./Music";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getListenHistory } from "../Reducer/songSlice";
 
 
 
 function History(){
-    const song = useSelector((state)=>state.song.listenHistory)
+    const [song,setSong] = useState( useSelector((state)=>state.song.listenHistory))
+   
     const dispatch = useDispatch()
     useEffect(() => {
         console.log("here");
-        dispatch(getListenHistory());
+        dispatch(getListenHistory()).then((res)=> console.log("here comes the response "+ res) )
     }, [dispatch]);
     
     console.log(song)
