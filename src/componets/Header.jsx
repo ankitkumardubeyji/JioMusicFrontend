@@ -46,18 +46,26 @@ function Header(){
         // Dispatch both actions concurrently
         Promise.allSettled([
             dispatch(searchSongs(searchQuery)),
-            dispatch(getArtistProfile(searchValue))
+            dispatch(getArtistProfile(searchValue)),
             
         ]).then((results) => {
             // Check the results of both actions
             const [artistProfileResult, searchSongsResult] = results;
         
-            // Check if artist profile was found
-            if (artistProfileResult.status === "fulfilled") {
-                navigate("/music"); // Navigate to music page
-            } else if (searchSongsResult.status === "fulfilled") {
+
+            if (searchSongsResult.status === "fulfilled") {
                 navigate("/search"); // Navigate to search page
-            } else {
+            }
+
+
+            // Check if artist profile was found
+           else  if (artistProfileResult.status === "fulfilled") {
+                navigate("/music"); // Navigate to music page
+            }
+            
+            
+            
+            else {
                 console.log("Not found"); // Log "not found" if both actions failed
             }
         });
