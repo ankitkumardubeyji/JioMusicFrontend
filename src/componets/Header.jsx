@@ -43,40 +43,28 @@ function Header(){
         // Define the search query for later use
         let searchQuery = `?query=${searchValue}`;
         
-        // Dispatch both actions concurrently
-        Promise.allSettled([
-            dispatch(searchSongs(searchQuery)),
-            dispatch(getArtistProfile(searchValue)),
-            
-        ]).then((results) => {
-            // Check the results of both actions
-            const [artistProfileResult, searchSongsResult] = results;
-            console.log(results)
-
-             // Check if artist profile was found
-           if (artistProfileResult.status === "fulfilled") {
-            navigate("/music"); // Navigate to music page
-        }
-
-           else if (searchSongsResult.status === "fulfilled") {
-                navigate("/search"); // Navigate to search page
+        // Dispatch getArtistProfile action first
+        dispatch(getArtistProfile(searchValue)).then((artistProfileResult) => {
+            // Check if artist profile was found
+            if (artistProfileResult.status === "fulfilled") {
+                navigate("/music"); // Navigate to music page
+            } else {
+                // If artist profile was not found, dispatch searchSongs action
+                dispatch(searchSongs(searchQuery)).then((searchSongsResult) => {
+                    // Check if search songs were found
+                    if (searchSongsResult.status === "fulfilled") {
+                        navigate("/search"); // Navigate to search page
+                    } else {
+                        console.log("Not found"); // Log "not found" if both actions failed
+                    }
+                }).catch((error) => {
+                    console.error("Error dispatching searchSongs:", error);
+                });
             }
-
-
-           
-            
-            
-            
-            else {
-                console.log("Not found"); // Log "not found" if both actions failed
-            }
+        }).catch((error) => {
+            console.error("Error dispatching getArtistProfile:", error);
         });
-    
-       
-       
-        /*
-        )
-        */
+        
     }
 const [searchValue,setSearchValue] = useState("")
     return (
