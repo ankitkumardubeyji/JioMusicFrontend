@@ -601,4 +601,8 @@ h1{
     bottom: 0;
     right: 10px;
   }
+
+  .time-duration input{
+    display: none;
+  }
 }
