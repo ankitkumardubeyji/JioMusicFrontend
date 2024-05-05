@@ -11,6 +11,7 @@ function History(){
     const song = useSelector((state)=>state.song.listenHistory)
     const dispatch = useDispatch()
     useEffect(()=>{
+        console.log("here");
         dispatch(getListenHistory())
     },[])
     console.log(song)
