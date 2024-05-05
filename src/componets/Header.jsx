@@ -42,7 +42,8 @@ function Header(){
         let searchQuery = `?query=${searchValue}`
         dispatch(getArtistProfile(searchValue)).then(()=>setLocation("/music"))
         dispatch(searchSongs(searchQuery)).then(()=>setLocation("/search"))
-        navigate(location)
+        setTimeout(()=>navigate(location),3000)
+  
 
     
        
