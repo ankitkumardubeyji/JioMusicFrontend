@@ -43,8 +43,8 @@ function Sidebar(){
         <div className="left-slide">
 
         <h1>LIBRARY</h1>
-            <p onClick={handleHistory}><i className="fa-thin fa-clock-rotate-left"></i>History</p>
-            <p onClick={handleYourSongs}><i className="fa-regular fa-music-note"></i>Songs</p>
+            <p><i className="fa-thin fa-clock-rotate-left"></i><Link to="/history">History</Link></p>
+            <p ><i className="fa-regular fa-music-note"></i><Link to="/ys">Your Songs</Link></p>
             <p><i className="fa-sharp fa-regular fa-record-vinyl"></i>Albums</p>
             <p><i className="fa-thin fa-podcast"></i>Podcasts</p>
             <p><i className="fa-thin fa-microphone-stand"></i>Artists</p>
