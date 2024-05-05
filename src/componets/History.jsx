@@ -10,10 +10,11 @@ import { getListenHistory } from "../Reducer/songSlice";
 function History(){
     const song = useSelector((state)=>state.song.listenHistory)
     const dispatch = useDispatch()
-    useEffect(()=>{
+    useEffect(() => {
         console.log("here");
-        dispatch(getListenHistory())
-    },[])
+        dispatch(getListenHistory());
+    }, [dispatch]);
+    
     console.log(song)
     const {currentSong,updateCurrentAlbumSong} = useCurrentSong()
     
