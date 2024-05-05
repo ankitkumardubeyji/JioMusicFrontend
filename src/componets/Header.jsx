@@ -40,8 +40,10 @@ function Header(){
         console.log("here came for the submisson")
         console.log(searchValue)
         let searchQuery = `?query=${searchValue}`
-        dispatch(getArtistProfile(searchValue)).then(()=>navigate("/music"))
         dispatch(searchSongs(searchQuery)).then(()=>navigate("/search"))
+        setTimeout(()=>  dispatch(getArtistProfile(searchValue)).then(()=>navigate("/music")),3000)
+    
+      
         
     
        
