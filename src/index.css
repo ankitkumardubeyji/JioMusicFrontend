@@ -583,7 +583,9 @@ h1{
 
   .songInfo{
     display: flex;
-    gap:1px;
+    align-items: start;
+    gap:20px;
+    width: 30%;
   }
 
   .titles{
