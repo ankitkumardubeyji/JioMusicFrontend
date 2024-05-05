@@ -34,45 +34,22 @@ function Header(){
         document.getElementsByClassName("left-slide")[0].classList.toggle('left-slide-active')
     }
 
-   
-        function handleSubmit(e) {
-            e.preventDefault();
-            console.log("here came for the submission");
-            console.log(searchValue);
-            let searchQuery = `?query=${searchValue}`;
-            
-            // Dispatch searchSongs action first
-            dispatch(searchSongs(searchQuery))
-                .then((searchSongsResult) => {
-                    // Check if searchSongs returned valid results
-                    if (searchSongsResult.length > 0) {
-                        // If searchSongs returned valid results, navigate to the search page
-                        navigate("/search");
-                    } else {
-                        // If searchSongs did not return valid results, dispatch getArtistProfile
-                        dispatch(getArtistProfile(searchValue))
-                            .then((getArtistProfileResult) => {
-                                // Check if getArtistProfile returned valid results
-                                if (getArtistProfileResult) {
-                                    // If getArtistProfile returned valid results, navigate to the music page
-                                    navigate("/music");
-                                } else {
-                                    // If neither searchSongs nor getArtistProfile returned valid results, display "not found" message
-                                    console.log("Not found");
-                                }
-                            })
-                            .catch((error) => {
-                                console.error("Error dispatching getArtistProfile:", error);
-                            });
-                    }
-                })
-                .catch((error) => {
-                    console.error("Error dispatching searchSongs:", error);
-                });
-        }
-        
-        
+    function handleSubmit(e){
+        let [music,setmusic] = useState(false)
+        e.preventDefault()
+        console.log("here came for the submisson")
+        console.log(searchValue)
+        let searchQuery = `?query=${searchValue}`
+        dispatch(getArtistProfile(searchValue)).then(()=>navigate("/music"))
+       .catch(()=>dispatch(searchSongs(searchQuery)).then(()=>navigate("/search")))
+
     
+       
+       
+        /*
+        )
+        */
+    }
 const [searchValue,setSearchValue] = useState("")
     return (
         <>
