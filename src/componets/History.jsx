@@ -13,7 +13,7 @@ function History(){
     const dispatch = useDispatch()
     useEffect(() => {
         console.log("here");
-        dispatch(getListenHistory()).then((res)=> console.log("here comes the response "+ res) )
+        dispatch(getListenHistory()).then((res)=> console.log("aa gya ji response "+ res) )
     }, [dispatch]);
     
     console.log(song)
