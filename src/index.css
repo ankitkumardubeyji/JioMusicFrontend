@@ -579,7 +579,7 @@ h1{
     gap:1vw;
     height: fit-content;
     align-items: start;
-    justify-content: center;
+   
   
   }
 
@@ -588,6 +588,7 @@ h1{
     align-items: start;
     gap:20px;
     width: 30%;
+    margin-left: 10px;
   }
 
   .titles{
