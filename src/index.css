@@ -597,9 +597,8 @@ h1{
   }
 
   .time-duration{
-    position: absolute;
-    bottom: 0;
-    right: 10px;
+   display: flex;
+   gap:1px;
   }
 
   .time-duration input{
