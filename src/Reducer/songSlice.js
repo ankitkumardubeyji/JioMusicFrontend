@@ -96,20 +96,13 @@ export const getSongs = createAsyncThunk("song/getSong", async (data) => {
   
 
 
-  export const addSongToListenHistory = createAsyncThunk("song/add",async(data)=>{
-    let result =[]
-        const res = axios.patch(`/api/v1/users/alh/${data}`)
-        toast.promise(res,{
-            loading:"wait adding the song to listen history",
-            success:(data)=>{
-                result = data?.data?.data ;
-                return data?.data?.message ;
-            }
-        })
+  export const addSongToListenHistory = createAsyncThunk("song/add", async (data) => {
+    let result = [];
+    const res = await axios.patch(`/api/v1/users/alh/${data}`);
+    result = res?.data?.data;
+    return result;
+});
 
-        await res;
-        return result;
-  })
 
   export const getListenHistory = createAsyncThunk("songs/history",async()=>{
     const res = axios.get('/api/v1/users/history');
