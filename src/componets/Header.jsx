@@ -51,7 +51,7 @@ function Header(){
         ]).then((results) => {
             // Check the results of both actions
             const [artistProfileResult, searchSongsResult] = results;
-        
+            console.log(results)
 
              // Check if artist profile was found
            if (artistProfileResult.status === "fulfilled") {
