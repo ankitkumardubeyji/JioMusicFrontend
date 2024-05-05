@@ -4,6 +4,7 @@ import { artistsFollowing } from "../Reducer/followSlice"
 import { useNavigate } from "react-router-dom"
 import { getArtistProfile, getListenHistory, getYourSongs } from "../Reducer/songSlice"
 import { getSongsInPlaylist, getUserPlaylist } from "../Reducer/playlistSlice"
+import { Link } from "react-router-dom"
 
 function Sidebar(){
     const dispatch = useDispatch()
