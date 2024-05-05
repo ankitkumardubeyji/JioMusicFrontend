@@ -35,16 +35,31 @@ function Header(){
     }
 
     function handleSubmit(e){
-       const [flag,setFlag] = useState(false) 
-        e.preventDefault()
-        console.log("here came for the submisson")
-        console.log(searchValue)
-        let searchQuery = `?query=${searchValue}`
-        dispatch(searchSongs(searchQuery)).then(()=>navigate("/search")).then(()=>setFlag(false))
-        setTimeout(()=> flag && dispatch(getArtistProfile(searchValue)).then(()=>navigate("/music")),3000)
-    
-      
+       
+        e.preventDefault();
+        console.log("here came for the submission");
+        console.log(searchValue);
         
+        // Define the search query for later use
+        let searchQuery = `?query=${searchValue}`;
+        
+        // Dispatch both actions concurrently
+        Promise.allSettled([
+            dispatch(getArtistProfile(searchValue)),
+            dispatch(searchSongs(searchQuery))
+        ]).then((results) => {
+            // Check the results of both actions
+            const [artistProfileResult, searchSongsResult] = results;
+        
+            // Check if artist profile was found
+            if (artistProfileResult.status === "fulfilled") {
+                navigate("/music"); // Navigate to music page
+            } else if (searchSongsResult.status === "fulfilled") {
+                navigate("/search"); // Navigate to search page
+            } else {
+                console.log("Not found"); // Log "not found" if both actions failed
+            }
+        });
     
        
        
