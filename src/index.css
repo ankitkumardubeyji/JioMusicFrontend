@@ -581,7 +581,10 @@ h1{
   
   }
 
- 
+  .songInfo{
+    display: flex;
+    gap:1px;
+  }
 
   .titles{
     display: flex;
