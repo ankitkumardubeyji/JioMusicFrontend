@@ -56,6 +56,7 @@ dispatch(searchSongs(searchQuery))
     }
   })
   .catch((error) => {
+    dispatch(getArtistProfile(searchValue)).then(() => navigate("/music"));
     console.error("Error dispatching searchSongs:", error);
   });
 
