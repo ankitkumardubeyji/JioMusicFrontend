@@ -598,8 +598,8 @@ h1{
   }
 
   .time-duration{
-   display: flex;
-   gap:1px;
+   display: none;
+
   }
 
   .time-duration input{
