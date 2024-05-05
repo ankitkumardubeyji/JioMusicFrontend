@@ -53,15 +53,17 @@ function Header(){
             const [artistProfileResult, searchSongsResult] = results;
         
 
-            if (searchSongsResult.status === "fulfilled") {
+             // Check if artist profile was found
+           if (artistProfileResult.status === "fulfilled") {
+            navigate("/music"); // Navigate to music page
+        }
+
+           else if (searchSongsResult.status === "fulfilled") {
                 navigate("/search"); // Navigate to search page
             }
 
 
-            // Check if artist profile was found
-           else  if (artistProfileResult.status === "fulfilled") {
-                navigate("/music"); // Navigate to music page
-            }
+           
             
             
             
