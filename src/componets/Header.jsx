@@ -35,12 +35,29 @@ function Header(){
     }
 
     function handleSubmit(e){
-        e.preventDefault()
-        console.log("here came for the submisson")
-        console.log(searchValue)
-        let searchQuery = `?query=${searchValue}`
-        dispatch(getArtistProfile(searchValue)).then(()=>navigate("/music"))
-       dispatch(searchSongs(searchQuery)).then(()=>navigate("/search"))
+
+        e.preventDefault();
+console.log("here came for the submission");
+console.log(searchValue);
+
+// Define the search query for later use
+let searchQuery = `?query=${searchValue}`;
+
+// Dispatch searchSongs action first
+dispatch(searchSongs(searchQuery))
+  .then((searchSongsResult) => {
+    // Check if searchSongs returned valid results
+    if (searchSongsResult.length === 0) {
+      // If searchSongs didn't return valid results, dispatch getArtistProfile
+      dispatch(getArtistProfile(searchValue)).then(() => navigate("/music"));
+    } else {
+      // If searchSongs returned valid results, navigate to the search page
+      navigate("/search");
+    }
+  })
+  .catch((error) => {
+    console.error("Error dispatching searchSongs:", error);
+  });
 
     
        
