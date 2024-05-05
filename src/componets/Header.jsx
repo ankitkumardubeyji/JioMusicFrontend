@@ -39,7 +39,14 @@ function Header(){
         console.log("here came for the submisson")
         console.log(searchValue)
         let searchQuery = `?query=${searchValue}`
-        dispatch(searchSongs(searchQuery)).then(()=>navigate("/search")).catch(()=> dispatch(getArtistProfile(searchValue)).then(()=>navigate("/music")).catch(()=>console.log("not found")))
+        let flag = false 
+        if(flag==false){
+            dispatch(searchSongs(searchQuery)).then(()=>{navigate("/search") ;flag=true})
+        }
+        if(flag==false){
+            dispatch(getArtistProfile(searchValue)).then(()=>{navigate("/music") ; flag =true})
+        }
+       
        
       
 
