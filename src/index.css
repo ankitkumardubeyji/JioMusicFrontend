@@ -605,4 +605,7 @@ h1{
   .time-duration input{
     display: none;
   }
+  .fa-volume{
+    display: hidden;
+  }
 }
