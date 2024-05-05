@@ -580,4 +580,11 @@ h1{
     height: fit-content;
   
   }
+
+ 
+
+  .titles{
+    display: flex;
+    flex-direction: column;
+  }
 }
