@@ -575,7 +575,6 @@ h1{
   .footer{
    
     display: flex;
-    flex-direction: column;
     gap:1vw;
     height: fit-content;
     align-items: start;
