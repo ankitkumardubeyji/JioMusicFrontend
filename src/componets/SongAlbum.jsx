@@ -27,15 +27,15 @@ const dispatch = useDispatch()
     function handleFollow(){
         console.log("came for updating the follow status")
         console.log(album.username)
-        dispatch(toggleFollowingStatus(album.username)).then((res)=>console.log(res))
-      
-        dispatch(getArtistProfile(album.username)).then((res)=>{
+        dispatch(toggleFollowingStatus(album.username)).then((res)=>console.log(res)).then(()=>  dispatch(getArtistProfile(album.username)).then((res)=>{
             
             setCount(res.payload.FollowersCount)
             setfollow(!follow)   
-        })
+        })).then(()=> dispatch(artistsFollowing(album.username)))
+      
+      
 
-        dispatch(artistsFollowing(album.username))
+       
     }   
 
 
