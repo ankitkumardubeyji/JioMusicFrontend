@@ -43,7 +43,7 @@ function Login() {
       return;
     }
 
-    const response = dispatch(validateUserAccount(signInData)).then(()=>setTimeout(()=>navigate("/"),2000))
+    dispatch(validateUserAccount(signInData)).then(()=>setTimeout(()=>navigate("/"),2000))
 
     setSignInData({
       email: "",
