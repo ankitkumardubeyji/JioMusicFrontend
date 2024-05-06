@@ -21,8 +21,8 @@ function Sidebar(){
     
     //navigate("/ys")
    }
-    const [Arts,setArts] = useState([])
-    const[playlist,setPlaylist] = useState([])
+    const [Arts,setArts] = useState(useSelector(state=>state.follow.followingArtists))
+    const[playlist,setPlaylist] = useState(useSelector(state=>state.playlist.userPlaylists))
 
     const arts = useSelector(state=>state.follow.followingArtists)
 
@@ -31,18 +31,10 @@ function Sidebar(){
     console.log(arts.length+" "+" is the length")
     
     useEffect(()=>{
-// Assuming artistsFollowing and getUserPlaylist are thunk action creators
-
-// Inside your component or wherever you're dispatching these actions
-dispatch(artistsFollowing())
-  .then((res) => res.json())
-  .then((data) => console.log(data));
-
-dispatch(getUserPlaylist())
-  .then((res) => res.json())
-  .then((data) => console.log(data));
-
-   
+      dispatch(artistsFollowing())
+      dispatch(getUserPlaylist()).then(()=>setPlaylist(userPlaylists))
+      setArts(arts)
+      
     },[])
 
     return(
