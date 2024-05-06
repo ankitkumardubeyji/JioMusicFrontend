@@ -123,6 +123,9 @@ const authSlice = createSlice({
             console.log(action.payload);
             localStorage.setItem("data",JSON.stringify({}));
             localStorage.setItem("isLoggedIn",false)
+            localStorage.setItem("followingArtists",JSON.stringify([]))
+            localStorage.setItem("userPlaylists",JSON.stringify([]))
+            localStorage.setItem("songsData",JSON.stringify([]))
             state.isLoggedIn = false
             state.data = {}
         })
