@@ -3,6 +3,8 @@ import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { validateUserAccount } from "../../Reducer/authSlice";
+import { artistsFollowing } from "../../Reducer/followSlice";
+import { getUserPlaylist } from "../../Reducer/playlistSlice";
 
 function Login() {
   const dispatch = useDispatch();
