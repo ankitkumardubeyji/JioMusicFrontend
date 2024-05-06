@@ -31,8 +31,17 @@ function Sidebar(){
     console.log(arts.length+" "+" is the length")
     
     useEffect(()=>{
-      dispatch(artistsFollowing()).then((res)=>console.log(res.json()))
-      dispatch(getUserPlaylist()).then((res)=>console.log(res.json()))
+// Assuming artistsFollowing and getUserPlaylist are thunk action creators
+
+// Inside your component or wherever you're dispatching these actions
+dispatch(artistsFollowing())
+  .then((res) => res.json())
+  .then((data) => console.log(data));
+
+dispatch(getUserPlaylist())
+  .then((res) => res.json())
+  .then((data) => console.log(data));
+
    
     },[])
 
