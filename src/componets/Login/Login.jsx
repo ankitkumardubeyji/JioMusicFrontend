@@ -43,8 +43,10 @@ function Login() {
       return;
     }
 
-    dispatch(validateUserAccount(signInData)).then(()=>setTimeout(()=>navigate("/"),4000))
+    dispatch(validateUserAccount(signInData)).then(()=>dispatch(artistsFollowing())).then(()=> dispatch(getUserPlaylist())).then(()=>setTimeout(()=>navigate("/"),2000))
 
+    
+   
     setSignInData({
       email: "",
       password: "",
