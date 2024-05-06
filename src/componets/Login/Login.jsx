@@ -14,15 +14,14 @@ function Login() {
     username: "",
   });
 
-  function validateAccount(e) {
+  async function validateAccount(e) {
     e.preventDefault();
-    console.log("came to frontend for logout");
-
+  
     if (!signInData.email || !signInData.password || !signInData.username) {
       toast.error("Please fill in all the details");
       return;
     }
-
+  
     if (
       !signInData.email.match(
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -31,7 +30,7 @@ function Login() {
       toast.error("Invalid email address");
       return;
     }
-
+  
     if (
       !signInData.password.match(
         /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}$/
@@ -42,23 +41,30 @@ function Login() {
       );
       return;
     }
-
-    const response = dispatch(validateUserAccount(signInData));
-
-    setSignInData({
-      email: "",
-      password: "",
-      username: "",
-    });
-
-    if (response) {
-      setTimeout(()=>{
-        navigate("/");
-      },2000)
-     
+  
+    try {
+      const response = await dispatch(validateUserAccount(signInData));
+  
+      if (response.payload.success) {
+        toast.success("Login successful");
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
+      } else {
+        toast.error(response.payload.error);
+      }
+  
+      setSignInData({
+        email: "",
+        password: "",
+        username: "",
+      });
+    } catch (error) {
+      console.error("Error while logging in:", error);
+      toast.error("An error occurred while logging in");
     }
   }
-
+  
   function handleUserInput(event) {
     const { name, value } = event.target;
     setSignInData({
