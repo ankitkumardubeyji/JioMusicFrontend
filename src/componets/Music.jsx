@@ -16,7 +16,7 @@ function Music({thumbnail,songName,singer,id,type}){
     let artist = "";
 
 
-    let song=""
+    let song= useSelector(state=>state.song.songsData)
 
     if(type=="song"){
         song = song1 
