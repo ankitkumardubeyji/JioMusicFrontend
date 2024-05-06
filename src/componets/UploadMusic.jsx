@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 import { useDispatch } from "react-redux"
-import { getSongs, publishSong } from "../Reducer/songSlice"
+import { publishSong } from "../Reducer/songSlice"
 
 
 
@@ -34,8 +34,6 @@ async function uploadNewVideo(event){
     console.log(formData)
 
     const response =  dispatch(publishSong(formData))
-    .then(()=>dispatch(getSongs("")))
-    .then(()=>setTimeout(()=>navigate("/"),2000))
     setUploadData({
         title:"",
         description:"",
@@ -44,7 +42,11 @@ async function uploadNewVideo(event){
       })
   
     
-      
+    if(response){
+      console.log(response)
+      console.log("video successfully upload ho gya bhai ")
+      navigate("/")
+    }
     
 
   }
