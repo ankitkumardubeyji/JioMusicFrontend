@@ -31,8 +31,8 @@ function Sidebar(){
     console.log(arts.length+" "+" is the length")
     
     useEffect(()=>{
-      dispatch(artistsFollowing()).then((res)=>console.log(res))
-      dispatch(getUserPlaylist()).then((res)=>console.log(res))
+      dispatch(artistsFollowing()).then((res)=>console.log(res.json()))
+      dispatch(getUserPlaylist()).then((res)=>console.log(res.json()))
    
     },[])
 
