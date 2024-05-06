@@ -2,20 +2,17 @@ import { useDispatch, useSelector } from "react-redux";
 import useCurrentSong from "../contexts/CurrentSongContext";
 import Image  from "./Image"
 import Music from "./Music";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { getListenHistory } from "../Reducer/songSlice";
 
 
 
 function History(){
-    const [song,setSong] = useState( useSelector((state)=>state.song.listenHistory))
-   
+    const song = useSelector((state)=>state.song.listenHistory)
     const dispatch = useDispatch()
-    useEffect(() => {
-        console.log("here");
-        dispatch(getListenHistory()).then((res)=> console.log("aa gya ji response "+ res.payload) )
-    }, [dispatch]);
-    
+    useEffect(()=>{
+        dispatch(getListenHistory())
+    },[])
     console.log(song)
     const {currentSong,updateCurrentAlbumSong} = useCurrentSong()
     
@@ -62,7 +59,7 @@ function History(){
        
 {
     
-    song.map((song,index)=><Music thumbnail ={song.thumbnail} songName={song.title} src="" singer={song.owner} id = {index} type="song" type="his"/>)
+    song.map((song,index)=><Music thumbnail ={song.thumbnail} songName={song.title} src="" singer={song.owner} id = {index}  type="his"/>)
 }
 </div>
        </div>
